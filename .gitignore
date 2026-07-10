@@ -1,0 +1,55 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Environment variables
+.env
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.jupyter/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+
+# PyMC / sampling artifacts
+*.nc
+*.trace
+mlruns/
+
+# Large / raw data (keep small sample, ignore bulk if needed)
+data/raw/*.zip
+
+# Frontend
+dashboard/frontend/node_modules/
+dashboard/frontend/build/
+dashboard/frontend/.env
+
+# Backend
+dashboard/backend/__pycache__/
+dashboard/backend/instance/
+
+# Logs
+*.log
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
