@@ -1,0 +1,81 @@
+/* ============================================================
+   Design tokens — "Crude Terminal" theme
+   A dark, data-dense aesthetic for energy-sector analysis:
+   deep petrol/near-black background, crude-oil amber accent,
+   muted teal secondary, monospace for numbers.
+   ============================================================ */
+:root {
+  --bg-void:        #0a0e14;
+  --bg-panel:       #10161f;
+  --bg-panel-raised:#161d29;
+  --border-hair:    #232b38;
+
+  --text-primary:   #e8ecf1;
+  --text-secondary: #8a94a6;
+  --text-tertiary:  #565f70;
+
+  --accent-crude:   #d9a441;   /* crude oil amber */
+  --accent-crude-dim: #8a6a2c;
+  --accent-teal:    #4fb8b0;   /* secondary data series */
+  --accent-danger:  #d9694a;   /* price drops / conflict events */
+  --accent-ok:      #6fbf82;
+  --accent-violet:  #9b8ad9;   /* sanctions / geopolitical events */
+
+  --font-display: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+
+  --radius-sm: 3px;
+  --radius-md: 6px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Background: a very subtle grid, evoking a trading terminal */
+body {
+  background-image:
+    linear-gradient(var(--border-hair) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border-hair) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-attachment: fixed;
+  background-color: var(--bg-void);
+  background-blend-mode: overlay;
+  opacity: 1;
+}
+
+::selection { background: var(--accent-crude-dim); color: #fff; }
+
+a { color: var(--accent-crude); }
+
+button {
+  font-family: var(--font-display);
+  cursor: pointer;
+}
+
+/* Utility: tabular numerals for all numeric displays */
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Scrollbar (webkit) — keep it quiet, matching the dark theme */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-void); }
+::-webkit-scrollbar-thumb { background: var(--border-hair); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-crude-dim); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
